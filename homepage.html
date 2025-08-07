@@ -1,0 +1,1694 @@
+<!--https://preview.themeforest.net/item/zenis-multipurpose-ecommerce-html-template/full_screen_preview/58079798?_ga=2.193305517.16766500.1752060729-1834034518.1751036760&_gac=1.13957573.1751437042.Cj0KCQjwjo7DBhCrARIsACWauSlQDyioInrfDxumDpEAGedPucDzYpelUDJ5i5bUfHjb4J5w3QbtIaoaArrxEALw_wcB-->
+<!--https://html.narzotech.com/zenis-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenis Clone</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <!-- Combined Google Fonts requests -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comic+Relief:wght@400;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oregano:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body onload="updateCounter()">
+    <div class="wrapper">
+        <nav class="nav-top">
+            <div class="container">
+                <div class="logo">
+                    <img src="/images/logo.png" alt="logo">
+                </div>
+                <div class="search">
+                    <form action="">
+                        <select name="categories" id="categories" title="categories">
+                            <option value="all categories">All Categories</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="kids">Kids</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                        <input type="text" placeholder="Search your product" id="search" oninput="filter()" />
+
+                        <ul id="unorderedList" class="unorderedList">
+                            <li><a href="#">Casuals</a></li>
+                            <li><a href="#">Kurtis & Tunics</a></li>
+                            <li><a href="#">Loungewear & Sleepwear</a></li>
+                            <li><a href="#">Shrugs & Jackets</a></li>
+                            <li><a href="#">Party Wear Gowns</a></li>
+                            <li><a href="#">Product not found</a></li>
+                        </ul>
+
+                        <a href="#" class="search-icon"><img src="/images/search-interface-symbol.png"
+                                alt="searc-icon"></a>
+                    </form>
+                </div>
+                <div class="profile">
+                    <div class="hotline">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>Hotline:</p>
+                        <a href="callto:1234567890" title="number">+(402) 763 282 46</a>
+                    </div>
+                    <div class="user-profile">
+                        <i class="far fa-user"></i>
+                        <p>Welcome:</p>
+                        <a href="callto:1234567890" title="name">Priya</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--nav1 ends here-->
+        <nav class="nav-bottom">
+            <div class="container">
+                <div class="categories">
+                    <a href="#category"><span><img src="/images/bar_icon_white.svg" alt=""></span>Browse
+                        Categories</a>
+                </div>
+                <div class="menu-item">
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Stores</a></li>
+                        <li><a href="">Flash Deals</a></li>
+                        <li><a href="">About Us </a></li>
+                        <li><a href="">Blogs</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="menu-icons">
+                    <ul>
+                        <li><a href="#"><img src="/images/compare_black.png" alt="compare"></a></li>
+                        <li><a href="#"><img src="/images/love_black.png" alt="wishlist"></a></li>
+                        <li><a href="cart.html"><img src="/images/cart_black.png" alt="cart"><span
+                                    id="cartCount">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--nav2 ends here-->
+
+        <div class="herobanner bg-section">
+            <!-- Slide 1 -->
+            <div class="hero-slide active">
+                <div class="container">
+                    <div class="hero-left hidden show">
+                        <h5>Summer Sale</h5>
+                        <h2>Discover Your Best Fitting Clothes</h2>
+                        <p>Exclusive offer <span>-35%</span> off this week</p>
+                        <a href="#">Shop Now</a>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-image-container img1 hidden">
+                            <img src="/images/herobanner_right.png" alt="herobanner-image" class="hidden show img1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+                <div class="container">
+                    <div class="hero-left hidden show">
+                        <h5>Women's Fashion</h5>
+                        <h2>Impressions Are Created By Fashion</h2>
+                        <p>Limited offer <span>-30%</span> off this day</p>
+                        <a href="#">Shop Now</a>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-image-container img2 hidden">
+                            <img src="/images/herobanner_right2.png" alt="winter-banner" class="hidden show img2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <div class="container">
+                    <div class="hero-left hidden show">
+                        <h5>Fitness Fashion</h5>
+                        <h2>Men's Sportswear And Joggers</h2>
+                        <p>Exclusive offer upto <span>-70%</span> off this month</p>
+                        <a href="#">Shop Now</a>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-image-container img3 hidden">
+                            <img src="/images/herobanner_right3.png" alt="winter-banner" class="hidden show img2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--herobanner ends here-->
+
+        <div class="popular-category" id="category">
+            <div class="container">
+                <div class="category-row1">
+                    <div class="category-row1-left">
+                        <p>Shop by Category</p>
+                        <h3>Popular Category on the Zenis</h3>
+                    </div>
+                    <div class="category-row1-right">
+                        <a href="#" class="view-more-link">View All<span><img src="/images/arrow_icon_black.svg"
+                                    alt=""></span></a>
+                    </div>
+                </div>
+                <div class="category-row2">
+                    <div class="carousel-wrapper hidden">
+                        <div class="carousel auto-scroll">
+                            <a href="#" class="carousel-item item1">
+                                <h3>Kids Fashion</h3>
+                                <p>53 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_1.png" alt="image1">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item2">
+                                <h3>Men's Fashion</h3>
+                                <p>47 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_2.png" alt="image2">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item3">
+                                <h3>Women's Fashion</h3>
+                                <p>70 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_3.png" alt="image3">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item4">
+                                <h3>Denims Collection</h3>
+                                <p>34 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_4.png" alt="image4">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item5">
+                                <h3>Western Wear</h3>
+                                <p>24 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_5.png" alt="image5">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item6">
+                                <h3>Sports Wear</h3>
+                                <p>14 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_6.png" alt="image6">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item7">
+                                <h3>Footwear</h3>
+                                <p>10 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_7.png" alt="image7">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item8">
+                                <h3>Winter Collection</h3>
+                                <p>24 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_8.png" alt="image8">
+                                </div>
+                            </a>
+                            <!--item done-->
+                            <a href="#" class="carousel-item item9">
+                                <h3>Fashion Jewellery</h3>
+                                <p>57 items</p>
+                                <div class="img">
+                                    <img src="/images/category_img_9.png" alt="image9">
+                                </div>
+                            </a>
+                            <!--item done-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--shop by category section ends here-->
+        <div class="flash-deals">
+            <div class="container">
+                <div class="flash-row1">
+                    <div class="flash-row1-left">
+                        <p>Today's</p>
+                        <h3>Flash Deals</h3>
+                    </div>
+                    <div class="flash-row1-middle">
+                        <div class="timebox">
+                            <div class="inner-circle">
+                                <span id="days">00</span>
+                            </div>
+                        </div>
+                        <div class="colon"><span>:</span></div>
+                        <div class="timebox">
+                            <div class="inner-circle">
+                                <span id="hours">00</span>
+                            </div>
+                        </div>
+                        <div class="colon"><span>:</span></div>
+                        <div class="timebox">
+                            <div class="inner-circle">
+                                <span id="minutes">00</span>
+                            </div>
+                        </div>
+                        <div class="colon"><span>:</span></div>
+                        <div class="timebox">
+                            <div class="inner-circle">
+                                <span id="seconds">00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flash-row1-right">
+                        <a href="#" class="view-more-link">View All<span><img src="/images/arrow_icon_black.svg"
+                                    alt=""></span></a>
+                    </div>
+                </div>
+                <!--row1 ends-->
+                <div class="flash-row2">
+                    <div class="carousel-wrapper hidden">
+                        <div class="carousel2 auto-scroll">
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_1.png" alt="product1"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Men's Fashionable Hoodie</p>
+                                    </a>
+                                    <p class="cost">$120.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(54 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_2.png" alt="product2"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Kids's Western Party Dress</p>
+                                    </a>
+                                    <p class="cost">$20.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(20 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_3.png" alt="product3"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Women's Western Party Wear</p>
+                                    </a>
+                                    <p class="cost">$40.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(25 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_4.png" alt="product4"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Men's Trendy Casual Shoes</p>
+                                    </a>
+                                    <p class="cost">$12.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(10 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_5.png" alt="product5"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Women's Party Wear Frocks</p>
+                                    </a>
+                                    <p class="cost">$80.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(120 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_6.png" alt="product6"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Men's Casual Denim Blazer</p>
+                                    </a>
+                                    <p class="cost">$45.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(55 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--flash deals section ends here-->
+        <div class="banner">
+            <div class="container">
+                <div class="banner-left hidden">
+                    <img src="/images/large_banner_img.png" alt="banner img">
+                </div>
+                <div class="banner-right hidden">
+                    <p class="offer">70% Off This Week!</p>
+                    <h3>Short Sleeve Tunic Tops Casual Swing Dress</h3>
+                    <div class="customization">
+                        <div class="color">
+                            <button>Color</button>
+                            <p>Red, Blue, Green</p>
+                        </div>
+                        <div class="size">
+                            <button>Size</button>
+                            <p>S , M , L , XL , XXL</p>
+                        </div>
+                        <div class="brand">
+                            <button>Brand</button>
+                            <p>Product Brand</p>
+                        </div>
+                    </div>
+                    <div class="cost">
+                        <div class="number">
+                            <p>$499.00</p>
+                        </div>
+                        <div class="shop-now-button">
+                            <a href>Shop Now <span><i class="fas fa-long-arrow-right" aria-hidden="true"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--banner section ends here-->
+        <div class="trending-products">
+            <div class="container">
+                <div class="trending-products-row1">
+                    <div class="trending-products-row1-left">
+                        <p>Trending This Month</p>
+                        <h3>Trending Products</h3>
+                    </div>
+                    <div class="trending-products-row1-right">
+                        <a href="#" class="view-more-link">View All<span><img src="/images/arrow_icon_black.svg"
+                                    alt=""></span></a>
+                    </div>
+                </div>
+                <!--row1 ends-->
+                <div class="trending-products-row2">
+                    <div class="carousel-wrapper disable-scrollbar">
+                        <div class="product-row1 hidden">
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="productDetail.html"><img src="/images/product_7.png" alt="product7"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Denim Two-Quarters for Men and Women</p>
+                                    </a>
+                                    <p class="cost">$40.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(25 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_8.png" alt="product8"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Girl's Western Party Wear Frocks</p>
+                                    </a>
+                                    <p class="cost">$130.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(62 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_9.png" alt="product9"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Men's Casual Denim Combo Outfits</p>
+                                    </a>
+                                    <p class="cost">$76.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(92 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_10.png" alt="product10"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Women's Premium Denim Wears</p>
+                                    </a>
+                                    <p class="cost">$90.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(11 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                        </div>
+                        <div class="product-row2 hidden">
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_11.png" alt="product11"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Girl's Cotton Party Wear Frocks</p>
+                                    </a>
+                                    <p class="cost">$130.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(34 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_12.png" alt="product12"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Women's Trendy Cotton Tops and Sets</p>
+                                    </a>
+                                    <p class="cost">$93.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(36 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_13.png" alt="product13"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Women's Cotton and Premium Skirts</p>
+                                    </a>
+                                    <p class="cost">$193.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(45 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_14.png" alt="product14"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Women's Premium Denim Pant</p>
+                                    </a>
+                                    <p class="cost">$120.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(53 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--trending products section ends here-->
+        <div class="favorite-style">
+            <div class="favorite-style-left hidden">
+                <div class="favorite-style-left-content">
+                    <h4>This Spring On Apple</h4>
+                    <h5>Upto 50k Off</h5>
+                    <p>Limited Time Offer</p>
+                    <a href>Shop Now <span><i class="fas fa-long-arrow-right" aria-hidden="true"></i></span></a>
+                </div>
+            </div>
+            <div class="favorite-style-right hidden">
+                <p>Shop by Category</p>
+                <h3>Customer Favorite Style Product</h3>
+                <div class="favorite-style-right-row1">
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_15.png" alt="product15">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Men's Casual Denim Shirt</p>
+                            <p class="cost">$59.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_16.png" alt="product16">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Women's Premium Cotton</p>
+                            <p class="cost">$35.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_17.png" alt="product17">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Men's Casual Denim Pants</p>
+                            <p class="cost">$120.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_18.png" alt="product18">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Women's Premium Shirt</p>
+                            <p class="cost">$139.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                </div>
+                <div class="favorite-style-right-row2">
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_19.png" alt="product19">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Men's Premium Formal Shirt</p>
+                            <p class="cost">$132.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_20.png" alt="product20">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Women's Premium Cotton</p>
+                            <p class="cost">$89.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_28.png" alt="product28">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Men's T-shirt Combo</p>
+                            <p class="cost">$130.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                    <a href="#" class="item">
+                        <div class="item-top">
+                            <img src="/images/product_8.png" alt="product8">
+                        </div>
+                        <div class="item-bottom">
+                            <p class="name">Kid's Western Party Dress</p>
+                            <p class="cost">$75.00</p>
+                        </div>
+                    </a>
+                    <!--item done-->
+                </div>
+            </div>
+        </div>
+        <!--favorite style section done-->
+        <div class="new-arrival">
+            <div class="container">
+                <div class="new-arrival-row1">
+                    <div class="new-arrival-row1-left">
+                        <p>New This Month</p>
+                        <h3>New Arrival</h3>
+                    </div>
+                    <div class="new-arrival-row1-right">
+                        <a href="#" class="view-more-link">View All<span><img src="/images/arrow_icon_black.svg"
+                                    alt=""></span></a>
+                    </div>
+                </div>
+                <!--row1 ends-->
+                <div class="new-arrival-row2">
+                    <div class="carousel-wrapper disable-scrollbar">
+                        <div class="new-arrival-products-row1 hidden">
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_23.png" alt="product23"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Kid's Western Party Wear Dress</p>
+                                    </a>
+                                    <p class="cost">$75.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(44 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_24.png" alt="product24"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Casual Denim Blazer for Men and Women</p>
+                                    </a>
+                                    <p class="cost">$45.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(30 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_3.png" alt="product3"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Women's Western Party Dress</p>
+                                    </a>
+                                    <p class="cost">$135.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(20 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                            <div class="item">
+                                <div class="item-top">
+                                    <a href="#"><img src="/images/product_26.png" alt="product26"
+                                            class="product-image"></a>
+                                </div>
+                                <div class="item-bottom">
+                                    <a href="#">
+                                        <p class="name">Kid's Western Party Wear Dress</p>
+                                    </a>
+                                    <p class="cost">$15.00</p>
+                                    <div class="reviews">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <img src="/images/star.png" alt="star">
+                                        <p class="reviews-count">(75 Reviews)</p>
+                                    </div>
+                                    <div class="color-cart">
+                                        <ul class="color">
+                                            <li class="red"></li>
+                                            <li class="green"></li>
+                                            <li class="blue"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                        <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                                alt="bag"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--item done-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--new arrival section ends here-->
+        <div class="special-brand">
+            <div class="container">
+                <div class="special-brand-top">
+                    <p>Special Products Of This Month</p>
+                    <h3>Our Special Brand Products</h3>
+                </div>
+                <!--top section ends-->
+                <div class="special-brand-bottom">
+                    <div class="special-brand-bottom-col1 col hidden">
+                        <div class="special-brand-bottom-col1-row1">
+                            <div class="save-badge">Save $20</div>
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_27.png" alt="product27">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Men's Trendy Formal Shoes</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$10.00 </p>
+                                    <p class="old-cost"><s>$20.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                        <div class="special-brand-bottom-col1-row2 hidden">
+                            <!-- <div class="save-badge">Save $20</div> -->
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_28.png" alt="product28">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Men's T-shirt Combo Set</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$17.00 </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                        <div class="special-brand-bottom-col1-row3">
+                            <!-- <div class="save-badge">Save $20</div> -->
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_29.png" alt="product29">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Women's T-shirt Combo</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$13.00 </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                        <div class="special-brand-bottom-col1-row4">
+                            <div class="save-badge">Save $20</div>
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_22.png" alt="product22">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Cotton Twinset for Girls</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$13.00 </p>
+                                    <p class="old-cost"><s>$50.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                    </div>
+                    <!--column1 ends here-->
+                    <div class="special-brand-bottom-col2 col hidden">
+                        <h3>make your fashion <br>look more changing</h3>
+                        <p>Get 50% Off on Selected Clothing Items</p>
+                        <div class="shop-now-button">
+                            <a href="">Shop Now <span><i class="fas fa-long-arrow-right"
+                                        aria-hidden="true"></i></span></a>
+                        </div>
+                        <img src="/images/special_pro_banner_img_4.jpg" alt="pro_banner">
+                    </div>
+                    <!--column2 ends here-->
+                    <div class="special-brand-bottom-col3 col hidden">
+                        <div class="special-brand-bottom-col1-row1">
+                            <div class="save-badge">Save $20</div>
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_30.png" alt="product30">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Men's Premium Formal Pant</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$29.00 </p>
+                                    <p class="old-cost"><s>$50.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                        <div class="special-brand-bottom-col1-row2">
+                            <!-- <div class="save-badge">Save $20</div> -->
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_1.png" alt="product1">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Men's Fashionable Hoodie</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$20.00 </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                        <div class="special-brand-bottom-col1-row3">
+                            <!-- <div class="save-badge">Save $20</div> -->
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_2.png" alt="product2">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Kids Cotton Combo Set</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$16.00 </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                        <div class="special-brand-bottom-col1-row4">
+                            <div class="save-badge">Save $20</div>
+                            <div class="special-brand-bottom-col-row-left">
+                                <img src="/images/product_11.png" alt="product11">
+                            </div>
+                            <div class="special-brand-bottom-col-row-right">
+                                <a href="#">Cotton Frock for Girls</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="new-cost">$17.00 </p>
+                                    <p class="old-cost"><s>$37.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--row ends-->
+                    </div>
+                    <!--column3 ends here-->
+                </div>
+            </div>
+        </div>
+        <!--special brand section ends here-->
+        <div class="trusted-brands">
+            <div class="scroll-container">
+                <ul class="brand-auto-scroll">
+                    <li><a href="#"><img src="/images/brand1.png" alt="brand1"></a></li>
+                    <li><a href="#"><img src="/images/brand2.png" alt="brand2"></a></li>
+                    <li><a href="#"><img src="/images/brand3.png" alt="brand3"></a></li>
+                    <li><a href="#"><img src="/images/brand4.png" alt="brand4"></a></li>
+                    <li><a href="#"><img src="/images/brand5.png" alt="brand5"></a></li>
+                    <li><a href="#"><img src="/images/brand6.png" alt="brand6"></a></li>
+                    <li><a href="#"><img src="/images/brand7.png" alt="brand7"></a></li>
+                    <li><a href="#"><img src="/images/brand8.png" alt="brand8"></a></li>
+                    <li><a href="#"><img src="/images/brand9.png" alt="brand9"></a></li>
+                    <li><a href="#"><img src="/images/brand10.png" alt="brand10"></a></li>
+                    <li><a href="#"><img src="/images/brand11.png" alt="brand11"></a></li>
+
+                    <!--item duplicate for seamless transition-->
+                    <li><a href="#"><img src="/images/brand1.png" alt="brand1"></a></li>
+                    <li><a href="#"><img src="/images/brand2.png" alt="brand2"></a></li>
+                    <li><a href="#"><img src="/images/brand3.png" alt="brand3"></a></li>
+                    <li><a href="#"><img src="/images/brand4.png" alt="brand4"></a></li>
+                    <li><a href="#"><img src="/images/brand5.png" alt="brand5"></a></li>
+                    <li><a href="#"><img src="/images/brand6.png" alt="brand6"></a></li>
+                    <li><a href="#"><img src="/images/brand7.png" alt="brand7"></a></li>
+                    <li><a href="#"><img src="/images/brand8.png" alt="brand8"></a></li>
+                    <li><a href="#"><img src="/images/brand9.png" alt="brand9"></a></li>
+                    <li><a href="#"><img src="/images/brand10.png" alt="brand10"></a></li>
+                    <li><a href="#"><img src="/images/brand11.png" alt="brand11"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--trusted brands section ends here-->
+        <div class="multi-product">
+            <div class="container">
+                <div class="featured-products">
+                    <div class="multi-product-title">
+                        <h3>Featured Products</h3>
+                    </div>
+                    <div class="multi-product-content hidden">
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_10.png" alt="product10">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Women's Premium Denim</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(57 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$10.00 </p>
+                                    <p class="multi-old-cost"><s>$20.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_20.png" alt="product20">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Women's Premium Cotton</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(42 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$28.00 </p>
+                                    <p class="multi-old-cost"><s>$50.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_30.png" alt="product30">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Men's Premium Formal Pant</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(48 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$90.00 </p>
+                                    <p class="multi-old-cost"><s>$120.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                    </div>
+                </div>
+                <!--featured products column over-->
+                <div class="weekly-best-products">
+                    <div class="multi-product-title">
+                        <h3>Weekly Best Products</h3>
+                    </div>
+                    <div class="multi-product-content hidden">
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_11.png" alt="product11">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Kid's Western Party Dress</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(8 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$39.00 </p>
+                                    <p class="multi-old-cost"><s>$60.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_29.png" alt="product29">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Women's T-shirt combo</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(29 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$130.00 </p>
+                                    <p class="multi-old-cost"><s>$150.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_21.png" alt="product21">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Women's Premium Cotton</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(27 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$68.00 </p>
+                                    <p class="multi-old-cost"><s>$90.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                    </div>
+                </div>
+                <!--weekly best products column over-->
+                <div class="top-rated-products">
+                    <div class="multi-product-title">
+                        <h3>Top Rated Products</h3>
+                    </div>
+                    <div class="multi-product-content hidden">
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_17.png" alt="product17">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Men's Casual Denim Pants</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(40 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$125.00 </p>
+                                    <p class="multi-old-cost"><s>$140.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_27.png" alt="product27">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Men's Trendy Formal Shoes</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(70 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$97.00 </p>
+                                    <p class="multi-old-cost"><s>$112.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                        <div class="product">
+                            <div class="product-left">
+                                <img src="/images/product_2.png" alt="product2">
+                            </div>
+                            <div class="product-right">
+                                <a href="#">Kids Cotton Combo Set</a>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <span>(82 Reviews)</span>
+                                </div>
+                                <div class="special-brand-cost">
+                                    <p class="multi-new-cost">$70.00 </p>
+                                    <p class="multi-old-cost"><s>$86.00</s></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--product done-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--multi product section ends here-->
+        <div class="news-and-article">
+            <div class="container">
+                <div class="news-and-article-row1">
+                    <div class="news-and-article-row1-left">
+                        <p>Our Blog Post</p>
+                        <h3>Latest News & Articles</h3>
+                    </div>
+                    <div class="news-and-article-row1-right">
+                        <a href="#" class="view-more-link">View All<span><img src="/images/arrow_icon_black.svg"
+                                    alt=""></span></a>
+                    </div>
+                </div>
+                <div class="news-and-article-row2 hidden">
+                    <div class="blog">
+                        <div class="blog-image">
+                            <img src="/images/blog_img_1.png" alt="blog1">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-content-top">
+                                <ul>
+                                    <li class="admin"><i class="far fa-user" aria-hidden="true"></i>Admin</li>
+                                    <hr>
+                                    <li><i class="far fa-calendar-alt" aria-hidden="true"></i>03 Mar 2025</li>
+                                </ul>
+                            </div>
+                            <a href="">How To Plop Hair For Bouncy And Beautiful Curls</a>
+                            <div class="blog-content-bottom">
+                                <ul>
+                                    <li class="read-more"><a href="#" class="read-more">Read More<i
+                                                class="fas fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                    <li class="comments"><i class="far fa-comment-dots" aria-hidden="true"></i> 15
+                                        Comments
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--blog ends-->
+                    <div class="blog">
+                        <div class="blog-image">
+                            <img src="/images/blog_img_2.png" alt="blog2">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-content-top">
+                                <ul>
+                                    <li class="admin"><i class="far fa-user" aria-hidden="true"></i>Admin</li>
+                                    <hr>
+                                    <li><i class="far fa-calendar-alt" aria-hidden="true"></i>20 Mar 2025</li>
+                                </ul>
+                            </div>
+                            <a href="">Which Foundation Formula Is Right For Your Skin</a>
+                            <div class="blog-content-bottom">
+                                <ul>
+                                    <li class="read-more"><a href="#" class="read-more">Read More<i
+                                                class="fas fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                    <li class="comments"><i class="far fa-comment-dots" aria-hidden="true"></i> 42
+                                        Comments
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--blog ends-->
+                    <div class="blog">
+                        <div class="blog-image">
+                            <img src="/images/blog_img_3.png" alt="blog3">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-content-top">
+                                <ul>
+                                    <li class="admin"><i class="far fa-user" aria-hidden="true"></i>Admin</li>
+                                    <hr>
+                                    <li><i class="far fa-calendar-alt" aria-hidden="true"></i>03 Mar 2025</li>
+                                </ul>
+                            </div>
+                            <a href="">How To Choose The Right Sofa For Your Home</a>
+                            <div class="blog-content-bottom">
+                                <ul>
+                                    <li class="read-more"><a href="#" class="read-more">Read More<i
+                                                class="fas fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                    <li class="comments"><i class="far fa-comment-dots" aria-hidden="true"></i> 36
+                                        Comments
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--blog ends-->
+                </div>
+            </div>
+        </div>
+        <!--news and article section ends here-->
+        <footer>
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-info hidden">
+                        <div class="footer-info-left">
+                            <img src="/images/feature-icon_1.svg" alt="footer1">
+                        </div>
+                        <div class="footer-info-right">
+                            <h3>Return & Refund</h3>
+                            <p>Money back guarentee</p>
+                        </div>
+                    </div>
+                    <!--info over-->
+                    <div class="footer-info hidden">
+                        <div class="footer-info-left">
+                            <img src="/images/feature-icon_2.svg" alt="feature2">
+                        </div>
+                        <div class="footer-info-right">
+                            <h3>Quality Support</h3>
+                            <p>Always online 24/7</p>
+                        </div>
+                    </div>
+                    <!--info over-->
+                    <div class="footer-info hidden">
+                        <div class="footer-info-left">
+                            <img src="/images/feature-icon_3.svg" alt="feature3">
+                        </div>
+                        <div class="footer-info-right">
+                            <h3>Secure Payment</h3>
+                            <p> 30% off by subscribing</p>
+                        </div>
+                    </div>
+                    <!--info over-->
+                    <div class="footer-info hidden">
+                        <div class="footer-info-left">
+                            <img src="/images/feature-icon_4.svg" alt="feature4">
+                        </div>
+                        <div class="footer-info-right">
+                            <h3>Daily Offers</h3>
+                            <p>20% off by subscribing</p>
+                        </div>
+                    </div>
+                    <!--info over-->
+                </div>
+            </div>
+            <!--footer top ends here-->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom-row1">
+                        <div class="footer-bottom-col1 hidden">
+                            <a href="$"><img src="/images/footer_logo_2.png" alt="logo"></a>
+                            <p>Zenis offers stylish and affordable fashion for every occasion.
+                                Discover quality, comfort, and trends all in one place.</p>
+                            <div class="social-icons">
+                                <p>Follow:</p>
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--col ends-->
+                        <div class="footer-bottom-col middle middle1 hidden">
+                            <h3>Company</h3>
+                            <div class="links">
+                                <ul>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Affiliate</a></li>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="#">Latest News</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--col ends-->
+                        <div class="footer-bottom-col middle hidden">
+                            <h3>Category</h3>
+                            <div class="links">
+                                <ul>
+                                    <li><a href="#">Men's Fashion</a></li>
+                                    <li><a href="#">Denim Collection</a></li>
+                                    <li><a href="#">Western Wear</a></li>
+                                    <li><a href="#">Sports Wear</a></li>
+                                    <li><a href="#">Foot Wear</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--col ends-->
+                        <div class="footer-bottom-col end hidden">
+                            <h3>Quick Links</h3>
+                            <div class="links">
+                                <ul>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Return Policy</a></li>
+                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Become A Vendor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--col ends-->
+                        <div class="footer-bottom-col end hidden">
+                            <h3 class="contact-us">Contact Us</h3>
+                            <p>Reach out anytime — we'd love to hear from you!</p>
+                            <div class="contact-links">
+                                <ul>
+                                    <li><img src="/images/location_icon_white.png" alt="location">37 W 24th St, NY</li>
+                                    <li><img src="/images/phone_icon_white.png" alt="location">+123 324 5879 39</li>
+                                    <li class="email"><img src="/images/mail_icon_white.png" alt="location"><a
+                                            href="#">info@zenis.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--col ends-->
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--parent wrapper ends here-->
+    <script src="/js/script.js"></script>
+    <div id="toast" class="toast">Product added successfully</div>
+</body>
+
+</html>

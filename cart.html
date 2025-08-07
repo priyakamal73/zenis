@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenis Clone</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <!-- Combined Google Fonts requests -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comic+Relief:wght@400;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oregano:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body onload="displayCart()">
+    <div class="wrapper">
+        <nav class="nav-top">
+            <div class="container">
+                <div class="logo">
+                    <img src="/images/logo.png" alt="logo">
+                </div>
+                <div class="search">
+                    <form action="">
+                        <select name="categories" id="categories" title="categories">
+                            <option value="all categories">All Categories</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="kids">Kids</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                        <input type="text" placeholder="Search your product" id="search" oninput="filter()" />
+
+                        <ul id="unorderedList" class="unorderedList">
+                            <li><a href="#">Casuals</a></li>
+                            <li><a href="#">Kurtis & Tunics</a></li>
+                            <li><a href="#">Loungewear & Sleepwear</a></li>
+                            <li><a href="#">Shrugs & Jackets</a></li>
+                            <li><a href="#">Party Wear Gowns</a></li>
+                            <li><a href="#">Product not found</a></li>
+                        </ul>
+
+                        <a href="#" class="search-icon"><img src="/images/search-interface-symbol.png"
+                                alt="searc-icon"></a>
+                    </form>
+                </div>
+                <div class="profile">
+                    <div class="hotline">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>Hotline:</p>
+                        <a href="callto:1234567890" title="number">+(402) 763 282 46</a>
+                    </div>
+                    <div class="user-profile">
+                        <i class="far fa-user"></i>
+                        <p>Welcome:</p>
+                        <a href="callto:1234567890" title="name">Priya</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--nav1 ends here-->
+        <nav class="nav-bottom">
+            <div class="container">
+                <div class="categories">
+                    <a href="homepage.html#category"><span><img src="/images/bar_icon_white.svg" alt=""></span>Browse
+                        Categories</a>
+                </div>
+                <div class="menu-item">
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Stores</a></li>
+                        <li><a href="">Flash Deals</a></li>
+                        <li><a href="">About Us </a></li>
+                        <li><a href="">Blogs</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="menu-icons">
+                    <ul>
+                        <li><a href="#"><img src="/images/compare_black.png" alt="compare"></a></li>
+                        <li><a href="#"><img src="/images/love_black.png" alt="wishlist"></a></li>
+                        <li><a href="cart.html"><img src="/images/cart_black.png" alt="cart"><span
+                                    id="cartCount">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--nav2 ends here-->
+
+        <div class="cart-banner">
+            <h3>Cart View</h3>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li class="arrow">></li>
+                <li><a href="#">Cart View</a></li>
+            </ul>
+        </div>
+
+        <div class="display-area">
+            <div class="container">
+                <div class="cart-content-wrapper">
+                    <div class="productDisplay" id="productDisplay">
+                        <div class="table-area">
+                            <table>
+                                <thead>
+                                    <tr class="default-row">
+                                        <th class="product-image-col">Product Image</th>
+                                        <th class="product-name-col">Product Name</th>
+                                        <th>Unit Price</th>
+                                        <th>Quantity</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                        <p class="empty-cart">Your cart is empty</p>
+                        <p class="empty-cart">Lets shop now!</p>
+
+                        <div class="clear">
+                            <button onclick="clearCart()" id="clear">Clear Cart</button>
+                        </div>
+                    </div>
+                    <div class="billing-display">
+                        <div class="billing-summary">
+                            <h3>Billing Summary</h3>
+                            <div class="text-summary">
+                                <div class="summary-title">
+                                    <p>Subtotal</p>
+                                    <p>Tax</p>
+                                    <p>Discount</p>
+                                </div>
+                                <div class="summary-value">
+                                    <p id="subtotal">$00.00</p>
+                                    <p id="tax">$00.00</p>
+                                    <p id="discount">$00.00</p>
+                                </div>
+                            </div>
+                            <!-- total text -->
+                            <div class="total">
+                                <div class="total-summary-title">
+                                    <p class="total-cost">Total</p>
+                                </div>
+                                <div class="total-summary-value">
+                                    <p id="total-cost" class="total-cost">$00.00</p>
+                                </div>
+                            </div>
+                            <!--coupon-->
+                            <div class="coupon">
+                                <input type="text" name="coupon" id="coupon" title="coupon" placeholder="Coupon code">
+                                <button type="button" id="apply" name="apply" title="apply"
+                                    onclick="applyDiscount()">Apply</button>
+                            </div>
+
+                            <div class="coupon-codes">
+                                <button onclick="setCoupon(this)">Coupon Code: TRX8291KV</button>
+                            </div>
+                            <div class="coupon-codes">
+                                <button onclick="setCoupon(this)">Coupon Code: LMN3487QP</button>
+                            </div>
+                            <div class="coupon-codes">
+                                <button onclick="setCoupon(this)">Coupon Code: HEM4556JL</button>
+                            </div>
+                        </div>
+
+                        <!--buttons-->
+                        <div class="buttons">
+                            <button class="continue-shopping">Continue Shopping</button>
+                            <button class="checkout" onclick="checkoutPage()">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-row1">
+                    <div class="footer-bottom-col1 hidden">
+                        <a href="$"><img src="/images/footer_logo_2.png" alt="logo"></a>
+                        <p>Zenis offers stylish and affordable fashion for every occasion.
+                            Discover quality, comfort, and trends all in one place.</p>
+                        <div class="social-icons">
+                            <p>Follow:</p>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle middle1 hidden">
+                        <h3>Company</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Affiliate</a></li>
+                                <li><a href="#">Career</a></li>
+                                <li><a href="#">Latest News</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle hidden">
+                        <h3>Category</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Men's Fashion</a></li>
+                                <li><a href="#">Denim Collection</a></li>
+                                <li><a href="#">Western Wear</a></li>
+                                <li><a href="#">Sports Wear</a></li>
+                                <li><a href="#">Foot Wear</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3>Quick Links</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Return Policy</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Become A Vendor</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3 class="contact-us">Contact Us</h3>
+                        <p>Reach out anytime — we'd love to hear from you!</p>
+                        <div class="contact-links">
+                            <ul>
+                                <li><img src="/images/location_icon_white.png" alt="location">37 W 24th St, NY</li>
+                                <li><img src="/images/phone_icon_white.png" alt="location">+123 324 5879 39</li>
+                                <li class="email"><img src="/images/mail_icon_white.png" alt="location"><a
+                                        href="#">info@zenis.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <div id="toast" class="toast">Product added successfully</div>
+</body>
+
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenis Clone</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <!-- Combined Google Fonts requests -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comic+Relief:wght@400;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oregano:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body onload="displayTotalCheckout()">
+    <div class="wrapper">
+        <nav class="nav-top">
+            <div class="container">
+                <div class="logo">
+                    <img src="/images/logo.png" alt="logo">
+                </div>
+                <div class="search">
+                    <form action="">
+                        <select name="categories" id="categories" title="categories">
+                            <option value="all categories">All Categories</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="kids">Kids</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                        <input type="text" placeholder="Search your product" id="search" oninput="filter()" />
+
+                        <ul id="unorderedList" class="unorderedList">
+                            <li><a href="#">Casuals</a></li>
+                            <li><a href="#">Kurtis & Tunics</a></li>
+                            <li><a href="#">Loungewear & Sleepwear</a></li>
+                            <li><a href="#">Shrugs & Jackets</a></li>
+                            <li><a href="#">Party Wear Gowns</a></li>
+                            <li><a href="#">Product not found</a></li>
+                        </ul>
+
+                        <a href="#" class="search-icon"><img src="/images/search-interface-symbol.png"
+                                alt="searc-icon"></a>
+                    </form>
+                </div>
+                <div class="profile">
+                    <div class="hotline">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>Hotline:</p>
+                        <a href="callto:1234567890" title="number">+(402) 763 282 46</a>
+                    </div>
+                    <div class="user-profile">
+                        <i class="far fa-user"></i>
+                        <p>Welcome:</p>
+                        <a href="callto:1234567890" title="name">Priya</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--nav1 ends here-->
+        <nav class="nav-bottom">
+            <div class="container">
+                <div class="categories">
+                    <a href="homepage.html#category"><span><img src="/images/bar_icon_white.svg" alt=""></span>Browse
+                        Categories</a>
+                </div>
+                <div class="menu-item">
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Stores</a></li>
+                        <li><a href="">Flash Deals</a></li>
+                        <li><a href="">About Us </a></li>
+                        <li><a href="">Blogs</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="menu-icons">
+                    <ul>
+                        <li><a href="#"><img src="/images/compare_black.png" alt="compare"></a></li>
+                        <li><a href="#"><img src="/images/love_black.png" alt="wishlist"></a></li>
+                        <li><a href="cart.html"><img src="/images/cart_black.png" alt="cart"><span
+                                    id="cartCount">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--nav2 ends here-->
+
+        <div class="cart-banner">
+            <h3>Checkout</h3>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li class="arrow">></li>
+                <li><a href="#">Checkout</a></li>
+            </ul>
+        </div>
+
+        <div class="display-area">
+            <div class="container">
+                <div class="cart-content-wrapper">
+                    <div class="shipping-information" id="shipping-information">
+                        <h3>Shipping Information</h3>
+                        <div class="account-details">
+                            <i class="far fa-user"></i>
+                            <p class="account-title">Account: </p>
+                            <p class="username">Sanmukapriya Kamalakkannan</p>
+                            <a href="">(Logout)</a>
+                        </div>
+
+                        <div class="address">
+                            <div class="address-left">
+                                <div class="radio-button">
+                                    <input type="radio" name="address1" id="address1" title="address1">
+                                </div>
+                                <div class="address-info">
+                                    <ul>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z">
+                                                </path>
+                                            </svg>37 West 24th Street, New York 10010, United States</li>
+                                        <li class="email"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z">
+                                                    </path>
+                                                </svg>info@zenis.com</a></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.75 3.75 18 6m0 0 2.25 2.25M18 6l2.25-2.25M18 6l-2.25 2.25m1.5 13.5c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z">
+                                                </path>
+                                            </svg>+123 324 5879 39</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--address left ends here-->
+                            <div class="address-right">
+                                <div class="radio-button">
+                                    <input type="radio" name="address1" id="address1" title="address1">
+                                </div>
+                                <div class="address-info">
+                                    <ul>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z">
+                                                </path>
+                                            </svg>37 West 24th Street, New York 10010, United States</li>
+                                        <li class="email"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z">
+                                                    </path>
+                                                </svg>info@zenis.com</a></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.75 3.75 18 6m0 0 2.25 2.25M18 6l2.25-2.25M18 6l-2.25 2.25m1.5 13.5c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z">
+                                                </path>
+                                            </svg>+123 324 5879 39</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--address rightt ends here-->
+                        </div>
+                        <!--address row1 ends here-->
+                        <div class="address">
+                            <div class="address-left">
+                                <div class="radio-button">
+                                    <input type="radio" name="address1" id="address1" title="address1">
+                                </div>
+                                <div class="address-info">
+                                    <ul>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z">
+                                                </path>
+                                            </svg>37 West 24th Street, New York 10010, United States</li>
+                                        <li class="email"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z">
+                                                    </path>
+                                                </svg>info@zenis.com</a></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.75 3.75 18 6m0 0 2.25 2.25M18 6l2.25-2.25M18 6l-2.25 2.25m1.5 13.5c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z">
+                                                </path>
+                                            </svg>+123 324 5879 39</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--address left ends here-->
+                            <div class="address-right">
+                                <div class="radio-button">
+                                    <input type="radio" name="address1" id="address1" title="address1">
+                                </div>
+                                <div class="address-info">
+                                    <ul>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z">
+                                                </path>
+                                            </svg>37 West 24th Street, New York 10010, United States</li>
+                                        <li class="email"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z">
+                                                    </path>
+                                                </svg>info@zenis.com</a></li>
+                                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.75 3.75 18 6m0 0 2.25 2.25M18 6l2.25-2.25M18 6l-2.25 2.25m1.5 13.5c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z">
+                                                </path>
+                                            </svg>+123 324 5879 39</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--address right ends here-->
+                        </div>
+                        <!--address row2 ends here-->
+
+
+                        <div class="different-address">
+                            <input type="checkbox" name="differentAddress" id="differentAddress"
+                                title="differentAddress" onchange="displayForm()">
+                            <label for="differentAddress" class="differentAddress">Bill to a different address?</label>
+
+                            <div id="addressForm" style="display: none; margin-top: 10px;">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="name">Name *</label>
+                                            <input type="text" id="name" placeholder="Jhon Deo" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="email">Email *</label>
+                                            <input type="email" id="email" placeholder="your@email.com" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="phone">Phone</label>
+                                            <input type="tel" id="phone" placeholder="+12356161334">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="company">Company Name</label>
+                                            <input type="text" id="company" placeholder="Zenis">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="country">Country</label>
+                                            <select id="country">
+                                                <option>India</option>
+                                                <option>United States</option>
+                                                <option>United Kingdom</option>
+                                                <option>China</option>
+                                                <option>Malaysia</option>
+                                                <option>Japan</option>
+                                                <option>Singapore</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="city">City</label>
+                                            <select id="city">
+                                                <option>Chennai</option>
+                                                <option>Las Vegas</option>
+                                                <option>London</option>
+                                                <option>Tokyo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="state">State</label>
+                                            <select id="state">
+                                                <option>Tamil Nadu</option>
+                                                <option>Kerala</option>
+                                                <option>Karnataka</option>
+                                                <option>Andhra Pradesh</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="zip">Zip</label>
+                                            <input type="text" id="zip" placeholder="100010">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group full-width">
+                                        <label for="address">Address</label>
+                                        <textarea id="address" rows="3"
+                                            placeholder="21, North park Avenue, NY"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="form-group full-width order-notes">
+                                <label for="notes">Order Notes (Optional)</label>
+                                <textarea id="notes" rows="2" placeholder="Any extra notes..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="billing-display checkout">
+                        <div class="billing-summary checkout">
+                            <h3>Billing Summary</h3>
+                            <div class="text-summary checkout">
+                                <div class="summary-title checkout">
+                                    <p>Subtotal</p>
+                                    <p>Tax</p>
+                                    <p>Discount</p>
+                                </div>
+                                <div class="summary-value checkout">
+                                    <p id="subtotal" class="subtotal">$00.00</p>
+                                    <p id="tax" class="tax">$00.00</p>
+                                    <p id="discount" class="discount">$00.00</p>
+                                </div>
+                            </div>
+                            <!-- total text -->
+                            <div class="total checkout">
+                                <div class="total-summary-title checkout">
+                                    <p class="total-cost">Total</p>
+                                </div>
+                                <div class="total-summary-value checkout">
+                                    <p id="total-cost" class="total-cost-checkout">$00.00</p>
+                                </div>
+                            </div>
+
+                            <div class="shipping-method">
+                                <h3>Shipping Method</h3>
+                                <div>
+                                    <input type="radio" name="shipping" id="flat-rate" title="flat-rate">
+                                    <label for="flat-rate">Flat Rate</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="shipping" id="local-pickup" title="local-pickup">
+                                    <label for="local-pickup">Local Pickup</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="shipping" id="free-shipping" title="free-shipping">
+                                    <label for="free-shipping">Free Shipping</label>
+                                </div>
+                            </div>
+
+                            <div class="payment-method">
+                                <h3>Payment Method</h3>
+                                <div>
+                                    <input type="radio" name="payment" id="cod" title="cash-on-delivery">
+                                    <label for="cod">Cash On Delivery</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="payment" id="card" title="card">
+                                    <label for="card">Debit/Credit Card</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="payment" id="upi" title="upi">
+                                    <label for="upi">UPI</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--billing summary ends here-->
+
+                        <div class="button">
+                            <button class="checkout placeorder">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-row1">
+                    <div class="footer-bottom-col1 hidden">
+                        <a href="$"><img src="/images/footer_logo_2.png" alt="logo"></a>
+                        <p>Zenis offers stylish and affordable fashion for every occasion.
+                            Discover quality, comfort, and trends all in one place.</p>
+                        <div class="social-icons">
+                            <p>Follow:</p>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle middle1 hidden">
+                        <h3>Company</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Affiliate</a></li>
+                                <li><a href="#">Career</a></li>
+                                <li><a href="#">Latest News</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle hidden">
+                        <h3>Category</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Men's Fashion</a></li>
+                                <li><a href="#">Denim Collection</a></li>
+                                <li><a href="#">Western Wear</a></li>
+                                <li><a href="#">Sports Wear</a></li>
+                                <li><a href="#">Foot Wear</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3>Quick Links</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Return Policy</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Become A Vendor</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3 class="contact-us">Contact Us</h3>
+                        <p>Reach out anytime — we'd love to hear from you!</p>
+                        <div class="contact-links">
+                            <ul>
+                                <li><img src="/images/location_icon_white.png" alt="location">37 W 24th St, NY</li>
+                                <li><img src="/images/phone_icon_white.png" alt="location">+123 324 5879 39</li>
+                                <li class="email"><img src="/images/mail_icon_white.png" alt="location"><a
+                                        href="#">info@zenis.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                </div>
+            </div>
+        </div>
+        <div id="toast" class="toast">Product added successfully</div>
+        <script src="js/script.js"></script>
+</body>
+
+</html>
