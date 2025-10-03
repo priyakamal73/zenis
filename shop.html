@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenis Clone</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <!-- Combined Google Fonts requests -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comic+Relief:wght@400;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oregano:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body onload="updateCounter()">
+    <div class="wrapper">
+        <nav class="nav-top">
+            <div class="container">
+                <div class="logo">
+                    <img src="/images/logo.png" alt="logo">
+                </div>
+                <div class="search">
+                    <form action="">
+                        <select name="categories" id="categories" title="categories">
+                            <option value="all categories">All Categories</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="kids">Kids</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                        <input type="text" placeholder="Search your product" id="search" oninput="filter()" />
+
+                        <ul id="unorderedList" class="unorderedList">
+                            <li><a href="shop.html">Casuals</a></li>
+                            <li><a href="shop.html">Kurtis & Tunics</a></li>
+                            <li><a href="shop.html">Loungewear & Sleepwear</a></li>
+                            <li><a href="shop.html">Shrugs & Jackets</a></li>
+                            <li><a href="shop.html">Party Wear Gowns</a></li>
+                            <li><a href="shop.html">Product not found</a></li>
+                        </ul>
+
+                        <a href="#" class="search-icon"><img src="/images/search-interface-symbol.png"
+                                alt="searc-icon"></a>
+                    </form>
+                </div>
+                <div class="profile">
+                    <div class="hotline">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>Hotline:</p>
+                        <a href="callto:1234567890" title="number">+(402) 763 282 46</a>
+                    </div>
+                    <div class="user-profile">
+                        <i class="far fa-user"></i>
+                        <p>Welcome:</p>
+                        <a href="callto:1234567890" title="name">Priya</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--nav1 ends here-->
+        <nav class="nav-bottom">
+            <div class="container">
+                <div class="categories">
+                    <a href="homepage.html#category"><span><img src="/images/bar_icon_white.svg" alt=""></span>Browse
+                        Categories</a>
+                </div>
+                <div class="menu-item">
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="flashDeals.html">Flash Deals</a></li>
+                        <li><a href="aboutUs.html">About Us </a></li>
+                        <li><a href="">Blogs</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="menu-icons">
+                    <ul>
+                        <li><a href="#"><img src="/images/compare_black.png" alt="compare"></a></li>
+                        <li><a href="#"><img src="/images/love_black.png" alt="wishlist"></a></li>
+                        <li><a href="cart.html"><img src="/images/cart_black.png" alt="cart"><span
+                                    id="cartCount">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--nav2 ends here-->
+        <div class="cart-banner">
+            <h3 class="hidden">Shop</h3>
+            <ul class="hidden">
+                <li><a href="homepage.html">Home</a></li>
+                <li class="arrow">></li>
+                <li><a href="#">Shop</a></li>
+            </ul>
+        </div>
+        <!--cart banner ends here-->
+
+        <div class="shop-display">
+            <div class="container">
+                <div class="filters" id="filters">
+                    <div class="price-range hidden">
+                        <p class="filter-title">Price Range</p>
+                        <div class="range-slider">
+                            <div class="track"></div>
+                            <input type="range" id="min" min="0" max="1000" value="292" step="1" title="range">
+                            <input type="range" id="max" min="0" max="1000" value="659" step="1" title="range">
+                            <div id="minVal" class="value display">292</div>
+                            <div id="maxVal" class="value display">659</div>
+                        </div>
+                    </div>
+                    <!--price range ends-->
+                    <div class="product-status hidden">
+                        <p class="filter-title">Product Status</p>
+                        <div class="option">
+                            <input type="checkbox" name="on-sale" id="on-sale" title="on-sale">
+                            <label for="on-sale">On Sale</label> <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="in-stock" id="in-stock" title="in-stock">
+                            <label for="in-stock">In Stock</label>
+                        </div>
+                    </div>
+                    <!--product status ends-->
+                    <div class="filter-colors hidden">
+                        <p class="filter-title">Filter By Color</p>
+                        <ul class="color-checkboxes">
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_1"
+                                        style="--color: #DB4437;">
+                                    <label class="form-check-label" for="color_1">Red</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_2"
+                                        style="--color: #0F9D58;">
+                                    <label class="form-check-label" for="color_2">Green</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_3"
+                                        style="--color: #4285F4;">
+                                    <label class="form-check-label" for="color_3">Light Blue</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_4"
+                                        style="--color: #1C58F2;">
+                                    <label class="form-check-label" for="color_5">Dark Blue</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_5"
+                                        style="--color: #FFBB33;">
+                                    <label class="form-check-label" for="color_4">Yellow</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_6"
+                                        style="--color: #AA66CC;" title="coclor">
+                                    <label class="form-check-label" for="color_5">Purple</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_7"
+                                        style="--color: #AB9774;" title="coclor">
+                                    <label class="form-check-label" for="color_5">Olive</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--colors ends-->
+                    <div class="filter-rating hidden">
+                        <p class="filter-title">Ratings</p>
+                        <div class="option">
+                            <input type="checkbox" name="five-stars" id="five-stars" title="five-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 5 Stars</label> <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="four-stars" id="four-stars" title="four-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 4 Stars</label>
+                            <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="three-stars" id="three-stars" title="three-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 3 Stars</label>
+                            <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="two-stars" id="two-stars" title="two-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 2 Stars</label>
+                            <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="one-star" id="one-star" title="one-star">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 1 Star</label>
+                            <br>
+                        </div>
+                    </div>
+                    <!--rating ends-->
+                    <div class="top-products hidden">
+                        <p class="filter-title">Top Rated Products</p>
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_18.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(29)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Full Sleeve Hoodie Jacket</a>
+                                <p class="price">$59.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_23.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(46)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Kid's Western Party Wear Dress</a>
+                                <p class="price">$12.70</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_13.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(32)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Women's Cotton and Premium Skirts</a>
+                                <p class="price">$35.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_7.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(18)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Denim Two-Quarters for Men and Women</a>
+                                <p class="price">$86.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_18.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(29)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Full Sleeve Hoodie Jacket</a>
+                                <p class="price">$59.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                    </div>
+                </div>
+                <!--filters ends-->
+                <div class="hamburger" id="hamburger" onclick="expandFilters()">
+                    Filters
+                </div>
+                <div class="display-filters" id="display-filters">
+                    <div class="price-range">
+                        <p class="filter-title">Price Range</p>
+                        <div class="range-slider">
+                            <div class="track"></div>
+                            <input type="range" id="min" min="0" max="1000" value="292" step="1" title="range">
+                            <input type="range" id="max" min="0" max="1000" value="659" step="1" title="range">
+                            <div id="minVal" class="value display">292</div>
+                            <div id="maxVal" class="value display">659</div>
+                        </div>
+                    </div>
+                    <!--price range ends-->
+                    <div class="product-status hidden show">
+                        <p class="filter-title">Product Status</p>
+                        <div class="option">
+                            <input type="checkbox" name="on-sale" id="on-sale" title="on-sale">
+                            <label for="on-sale">On Sale</label> <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="in-stock" id="in-stock" title="in-stock">
+                            <label for="in-stock">In Stock</label>
+                        </div>
+                    </div>
+                    <!--product status ends-->
+                    <div class="filter-colors hidden">
+                        <p class="filter-title">Filter By Color</p>
+                        <ul class="color-checkboxes">
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_1"
+                                        style="--color: #DB4437;">
+                                    <label class="form-check-label" for="color_1">Red</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_2"
+                                        style="--color: #0F9D58;">
+                                    <label class="form-check-label" for="color_2">Green</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_3"
+                                        style="--color: #4285F4;">
+                                    <label class="form-check-label" for="color_3">Light Blue</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_4"
+                                        style="--color: #1C58F2;">
+                                    <label class="form-check-label" for="color_5">Dark Blue</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_5"
+                                        style="--color: #FFBB33;">
+                                    <label class="form-check-label" for="color_4">Yellow</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_6"
+                                        style="--color: #AA66CC;" title="coclor">
+                                    <label class="form-check-label" for="color_5">Purple</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="color_7"
+                                        style="--color: #AB9774;" title="coclor">
+                                    <label class="form-check-label" for="color_5">Olive</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--colors ends-->
+                    <div class="filter-rating hidden">
+                        <p class="filter-title">Ratings</p>
+                        <div class="option">
+                            <input type="checkbox" name="five-stars" id="five-stars" title="five-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 5 Stars</label> <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="four-stars" id="four-stars" title="four-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 4 Stars</label>
+                            <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="three-stars" id="three-stars" title="three-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 3 Stars</label>
+                            <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="two-stars" id="two-stars" title="two-stars">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 2 Stars</label>
+                            <br>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="one-star" id="one-star" title="one-star">
+                            <label><i class="fas fa-star" aria-hidden="true"></i> 1 Star</label>
+                            <br>
+                        </div>
+                    </div>
+                    <!--rating ends-->
+                    <div class="top-products hidden">
+                        <p class="filter-title">Top Rated Products</p>
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_18.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(29)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Full Sleeve Hoodie Jacket</a>
+                                <p class="price">$59.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_23.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(46)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Kid's Western Party Wear Dress</a>
+                                <p class="price">$12.70</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_13.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(32)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Women's Cotton and Premium Skirts</a>
+                                <p class="price">$35.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_7.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(18)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Denim Two-Quarters for Men and Women</a>
+                                <p class="price">$86.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                        <div class="item-display">
+                            <div class="item-image">
+                                <a href="productDetail.html" class="img">
+                                    <img src="images/product_18.png" alt="Product" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="item-text">
+                                <p class="rating">
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star" aria-hidden="true"></i>
+                                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                                    <i class="far fa-star" aria-hidden="true"></i>
+                                    <span>(29)</span>
+                                </p>
+                                <a class="title" href="productDetail.html">Full Sleeve Hoodie Jacket</a>
+                                <p class="price">$59.00</p>
+                            </div>
+                        </div>
+                        <!--item ends-->
+                    </div>
+                </div>
+                <!--hamburger style ends-->
+                <div class="product-display" id="product-display">
+                    <div class="all-products-display hidden">
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_23.png" alt="product23"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$75.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(44 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_24.png" alt="product24"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Casual Denim Blazer for Men and Women</p>
+                                </a>
+                                <p class="cost">$45.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(30 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_3.png" alt="product3"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Women's Western Party Dress</p>
+                                </a>
+                                <p class="cost">$135.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(20 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_26.png" alt="product26"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$15.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(75 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                    </div>
+                    <!--all product row ends-->
+                    <div class="all-products-display hidden">
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_23.png" alt="product23"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$75.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(44 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_24.png" alt="product24"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Casual Denim Blazer for Men and Women</p>
+                                </a>
+                                <p class="cost">$45.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(30 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_3.png" alt="product3"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Women's Western Party Dress</p>
+                                </a>
+                                <p class="cost">$135.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(20 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_26.png" alt="product26"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$15.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(75 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                    </div>
+                    <!--all product row ends-->
+                    <div class="all-products-display hidden">
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_23.png" alt="product23"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$75.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(44 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_24.png" alt="product24"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Casual Denim Blazer for Men and Women</p>
+                                </a>
+                                <p class="cost">$45.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(30 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_3.png" alt="product3"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Women's Western Party Dress</p>
+                                </a>
+                                <p class="cost">$135.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(20 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="productDetail.html"><img src="/images/product_26.png" alt="product26"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="productDetail.html">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$15.00</p>
+                                <div class="reviews detail-reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(75 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--footer-->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-row1">
+                    <div class="footer-bottom-col1 hidden">
+                        <a href="$"><img src="/images/footer_logo_2.png" alt="logo"></a>
+                        <p>Zenis offers stylish and affordable fashion for every occasion.
+                            Discover quality, comfort, and trends all in one place.</p>
+                        <div class="social-icons">
+                            <p>Follow:</p>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                </label>
+                                <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle middle1 hidden">
+                        <h3>Company</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Affiliate</a></li>
+                                <li><a href="#">Career</a></li>
+                                <li><a href="#">Latest News</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle hidden">
+                        <h3>Category</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Men's Fashion</a></li>
+                                <li><a href="#">Denim Collection</a></li>
+                                <li><a href="#">Western Wear</a></li>
+                                <li><a href="#">Sports Wear</a></li>
+                                <li><a href="#">Foot Wear</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3>Quick Links</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Return Policy</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Become A Vendor</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3 class="contact-us">Contact Us</h3>
+                        <p>Reach out anytime — we'd love to hear from you!</p>
+                        <div class="contact-links">
+                            <ul>
+                                <li><img src="/images/location_icon_white.png" alt="location">37 W 24th St, NY</li>
+                                <li><img src="/images/phone_icon_white.png" alt="location">+123 324 5879 39</li>
+                                <li class="email"><img src="/images/mail_icon_white.png" alt="location"><a
+                                        href="#">info@zenis.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                </div>
+            </div>
+        </div>
+        <div id="toast" class="toast">Product added successfully</div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

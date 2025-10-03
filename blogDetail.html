@@ -98,88 +98,24 @@
         <!--nav2 ends here-->
 
         <div class="cart-banner">
-            <h3>Cart View</h3>
+            <h3>Blog Details</h3>
             <ul>
                 <li><a href="homepage.html">Home</a></li>
                 <li class="arrow">></li>
-                <li><a href="#">Cart View</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="arrow">></li>
+                <li><a href="#">Blog Details</a></li>
             </ul>
         </div>
+        <!--banner section ends-->
 
-        <div class="display-area">
+        <div class="blog-display-area hidden">
             <div class="container">
-                <div class="cart-content-wrapper">
-                    <div class="productDisplay" id="productDisplay">
-                        <div class="table-area">
-                            <table>
-                                <thead>
-                                    <tr class="default-row">
-                                        <th class="product-image-col">Product Image</th>
-                                        <th class="product-name-col">Product Name</th>
-                                        <th>Unit Price</th>
-                                        <th>Quantity</th>
-                                        <th>Subtotal</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-
-                        <p class="empty-cart">Your cart is empty</p>
-                        <p class="empty-cart">Lets shop now!</p>
-
-                        <div class="clear">
-                            <button onclick="clearCart()" id="clear">Clear Cart</button>
-                        </div>
-                    </div>
-                    <div class="billing-display">
-                        <div class="billing-summary">
-                            <h3>Billing Summary</h3>
-                            <div class="text-summary">
-                                <div class="summary-title">
-                                    <p>Subtotal</p>
-                                    <p>Tax</p>
-                                    <p>Discount</p>
-                                </div>
-                                <div class="summary-value">
-                                    <p id="subtotal">$00.00</p>
-                                    <p id="tax">$00.00</p>
-                                    <p id="discount">$00.00</p>
-                                </div>
-                            </div>
-                            <!-- total text -->
-                            <div class="total">
-                                <div class="total-summary-title">
-                                    <p class="total-cost">Total</p>
-                                </div>
-                                <div class="total-summary-value">
-                                    <p id="total-cost" class="total-cost">$00.00</p>
-                                </div>
-                            </div>
-                            <!--coupon-->
-                            <div class="coupon">
-                                <input type="text" name="coupon" id="coupon" title="coupon" placeholder="Coupon code">
-                                <button type="button" id="apply" name="apply" title="apply"
-                                    onclick="applyDiscount()">Apply</button>
-                            </div>
-
-                            <div class="coupon-codes">
-                                <button onclick="setCoupon(this)">Coupon Code: TRX8291KV</button>
-                            </div>
-                            <div class="coupon-codes">
-                                <button onclick="setCoupon(this)">Coupon Code: LMN3487QP</button>
-                            </div>
-                            <div class="coupon-codes">
-                                <button onclick="setCoupon(this)">Coupon Code: HEM4556JL</button>
-                            </div>
-                        </div>
-
-                        <!--buttons-->
-                        <div class="buttons">
-                            <button class="continue-shopping">Continue Shopping</button>
-                            <button class="checkout" onclick="checkoutPage()">Checkout</button>
-                        </div>
-                    </div>
+                <div class="blog-detail-image">
+                    <img src="images/blog_details_1_img.jpg" alt="blog-image" id="blog-image">
                 </div>
+                <!--image ends-->
+
             </div>
         </div>
 

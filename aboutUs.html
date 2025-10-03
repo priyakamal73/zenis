@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenis Clone</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <!-- Combined Google Fonts requests -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Comic+Relief:wght@400;700&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oregano:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--venobox for youtube video overlay-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/venobox@1.9.3/venobox/venobox.min.css">
+</head>
+
+<body onload="updateCounter()">
+    <div class="wrapper">
+        <nav class="nav-top">
+            <div class="container">
+                <div class="logo">
+                    <img src="/images/logo.png" alt="logo">
+                </div>
+                <div class="search">
+                    <form action="">
+                        <select name="categories" id="categories" title="categories">
+                            <option value="all categories">All Categories</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="kids">Kids</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                        <input type="text" placeholder="Search your product" id="search" oninput="filter()" />
+
+                        <ul id="unorderedList" class="unorderedList">
+                            <li><a href="shop.html">Casuals</a></li>
+                            <li><a href="shop.html">Kurtis & Tunics</a></li>
+                            <li><a href="shop.html">Loungewear & Sleepwear</a></li>
+                            <li><a href="shop.html">Shrugs & Jackets</a></li>
+                            <li><a href="shop.html">Party Wear Gowns</a></li>
+                            <li><a href="shop.html">Product not found</a></li>
+                        </ul>
+
+                        <a href="shop.html" class="search-icon"><img src="/images/search-interface-symbol.png"
+                                alt="searc-icon"></a>
+                    </form>
+                </div>
+                <div class="profile">
+                    <div class="hotline">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>Hotline:</p>
+                        <a href="callto:1234567890" title="number">+(402) 763 282 46</a>
+                    </div>
+                    <div class="user-profile">
+                        <i class="far fa-user"></i>
+                        <p>Welcome:</p>
+                        <a href="callto:1234567890" title="name">Priya</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--nav1 ends here-->
+        <nav class="nav-bottom">
+            <div class="container">
+                <div class="categories">
+                    <a href="homepage.html#category"><span><img src="/images/bar_icon_white.svg" alt=""></span>Browse
+                        Categories</a>
+                </div>
+                <div class="menu-item">
+                    <ul>
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="flashDeals.html">Flash Deals</a></li>
+                        <li><a href="aboutUs.html">About Us </a></li>
+                        <li><a href="">Blogs</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="menu-icons">
+                    <ul>
+                        <li><a href="#"><img src="/images/compare_black.png" alt="compare"></a></li>
+                        <li><a href="#"><img src="/images/love_black.png" alt="wishlist"></a></li>
+                        <li><a href="cart.html"><img src="/images/cart_black.png" alt="cart"><span
+                                    id="cartCount">0</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--nav2 ends here-->
+        <div class="cart-banner">
+            <h3 class="hidden">About Us</h3>
+            <ul class="hidden">
+                <li><a href="homepage.html">Home</a></li>
+                <li class="arrow">></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+        <!--cart banner ends here-->
+
+        <div class="about-section hidden">
+            <div class="container">
+                <div class="about-company">
+                    <div class="about-company-image">
+                        <img src="images/about_img.jpg" alt="about-image">
+                        <div class="years-of-experience">
+                            <h3 class="years">12+ <br><span>Years Experience</span></h3>
+                        </div>
+                        <div class="quote">
+                            <p>Zenis blends style, quality, and trust to create your perfect shopping experience.
+                                <br><span>John Deo</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-section-content">
+                        <h5>About Company</h5>
+                        <h3>Well-coordinated Teamwork Speaks About Us</h3>
+                        <p class="overall-text">Zenis is your trusted shopping destination, offering premium products
+                            and unmatched service.
+                            Dedicated to quality, we work together to deliver an exceptional experience.</p>
+                        <div class="quality">
+                            <ul>
+                                <li>
+                                    <h4>trusted partner</h4>
+                                    <p>At Zenis, we believe trust is the foundation of every great shopping experience.
+                                        We are committed to delivering transparency, reliability, and genuine products
+                                        that exceed your expectations every time.</p>
+                                </li>
+                                <li>
+                                    <h4>quality products</h4>
+                                    <p>Our collections are carefully curated to ensure premium quality, durability, and
+                                        style. Every product is sourced from trusted suppliers and thoroughly checked
+                                        before it reaches your doorstep.</p>
+                                </li>
+                                <li>
+                                    <h4>fast Delivery</h4>
+                                    <p>We value your time, so our efficient delivery network ensures that your orders
+                                        reach you quickly. From confirmation to your door, we keep you updated every
+                                        step of the way.</p>
+                                </li>
+                                <li>
+                                    <h4>secure payment</h4>
+                                    <p>Your safety matters to us. We offer encrypted, trusted, and hassle-free payment
+                                        options so you can shop with complete peace of mind, knowing your data is always
+                                        protected.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--abput company ends-->
+            </div>
+        </div>
+
+        <div class="unique-features hidden">
+            <div class="container">
+                <div class="feature">
+                    <div class="feature-text" id="feature1">
+                        <h3>Return &amp; refund</h3>
+                        <p>Money back guarantee</p>
+                    </div>
+                    <div class="feature-icon" id="icon1">
+                        <img src="images/feature-icon_1.svg" alt="feature">
+                    </div>
+                </div>
+                <!--feature ends-->
+
+                <div class="feature">
+                    <div class="feature-text" id="feature2">
+                        <h3>Quality Support</h3>
+                        <p>Always online 24/7</p>
+                    </div>
+                    <div class="feature-icon" id="icon2">
+                        <img src="images/feature-icon_2.svg" alt="feature">
+                    </div>
+                </div>
+                <!--feature ends-->
+
+                <div class="feature">
+                    <div class="feature-text" id="feature3">
+                        <h3>Secure Payment</h3>
+                        <p>30% off by subscribing</p>
+                    </div>
+                    <div class="feature-icon" id="icon3">
+                        <img src="images/feature-icon_3.svg" alt="feature">
+                    </div>
+                </div>
+                <!--feature ends-->
+
+                <div class="feature">
+                    <div class="feature-text" id="feature4">
+                        <h3>Daily Offers</h3>
+                        <p>20% off by subscribing</p>
+                    </div>
+                    <div class="feature-icon" id="icon4">
+                        <img src="images/feature-icon_4.svg" alt="feature">
+                    </div>
+                </div>
+                <!--feature ends-->
+            </div>
+        </div>
+        <!--unique features ends-->
+
+        <div class="why-we-are-the-best hidden">
+            <div class="container">
+                <div class="why-we-are-best-content">
+                    <h3>Why we are the best</h3>
+                    <div class="why-best-col1">
+                        <div class="about_choose_text_box">
+                            <span><i class="fas fa-tshirt" aria-hidden="true"></i></span>
+                            <h4>quality products</h4>
+                            <p>Premium, stylish, and durable products you can always trust.</p>
+                        </div>
+
+                        <div class="about_choose_text_box">
+                            <span><i class="fas fa-undo-alt" aria-hidden="true"></i></span>
+                            <h4>return policy</h4>
+                            <p>Simple, hassle-free returns for complete peace of mind.</p>
+                        </div>
+                    </div>
+                    <div class="why-best-col2">
+                        <div class="about_choose_text_box">
+                            <span><i class="fas fa-truck" aria-hidden="true"></i></span>
+                            <h4>fast delivery</h4>
+                            <p>Quick, reliable shipping straight to your home nationwide.</p>
+                        </div>
+
+                        <div class="about_choose_text_box">
+                            <span><i class="fas fa-headset" aria-hidden="true"></i></span>
+                            <h4>24/7 Service</h4>
+                            <p>Round-the-clock support for all your shopping needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--content ends-->
+                <div class="why-we-are-best-image">
+                    <img src="images/why_choose_img.jpg" alt="about us" class="img-fluid w-100">
+                </div>
+            </div>
+        </div>
+        <!--why we are the best section ends-->
+        <div class="container">
+            <div class="video-area">
+                <img src="images/about_video_bg.jpg" alt="video-thumbnail">
+                <div class="overlay">
+                    <a class="venobox play_btn vbox-item" data-autoplay="true" data-vbtype="video"
+                        href="https://www.youtube.com/watch?v=RRv5udKGG68">
+                        <i class=" fas fa-play" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--video section ends-->
+
+        <div class="container">
+            <div class="counter-section" id="counter-section">
+                <ul class="counter-list">
+                    <li class="border">
+                        <div class="details">
+                            <img src="images/counter_icon_1.png" alt="counter1">
+                            <h2><span class="counter" data-target="950">0</span>+</h2>
+                            <p>Happy Customers</p>
+                        </div>
+                    </li>
+                    <li class="border">
+                        <div class="details">
+                            <img src="images/counter_icon_2.png" alt="counter2">
+                            <h2><span class="counter" data-target="350">0</span>+</h2>
+                            <p>Expert Team</p>
+                        </div>
+                    </li>
+                    <li class="border">
+                        <div class="details">
+                            <img src="images/counter_icon_3.png" alt="counter3">
+                            <h2><span class="counter" data-target="35">0</span>+</h2>
+                            <p>Award Wining</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="details">
+                            <img src="images/counter_icon_4.png" alt="counter4">
+                            <h2><span class="counter" data-target="4.9">0</span></h2>
+                            <p>Avarage Rating</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--counter section ends-->
+
+        <div class="news-and-article about-us-article">
+            <div class="container">
+                <div class="news-and-article-row1">
+                    <div class="news-and-article-row1-left">
+                        <p>Our Blog Post</p>
+                        <h3>Latest News &amp; Articles</h3>
+                    </div>
+                    <div class="news-and-article-row1-right">
+                        <a href="#" class="view-more-link">View All<span><img src="/images/arrow_icon_black.svg"
+                                    alt=""></span></a>
+                    </div>
+                </div>
+
+                <div class="news-and-article-row2">
+                    <div class="all-products-display blog-display hidden">
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="blogDetail.html"><img src="/images/blog_img_1.png" alt="blog-image" class="product-image"></a>
+                            </div>
+                            <div class="item-bottom about-us-blog-bottom">
+                                <div class="blog-content-top about-us-blog">
+                                    <ul>
+                                        <li class="admin"><i class="far fa-user" aria-hidden="true"></i>Adan Alvi</li>
+                                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i>03 Mar 2025</li>
+                                    </ul>
+                                </div>
+                                <a href="blogDetail.html">How To Plop Hair For Bouncy And Beautiful Curls</a>
+                                <div class="blog-content-bottom about-us-bottom">
+                                    <ul>
+                                        <li class="read-more"><a href="#" class="read-more">Read More<i
+                                                    class="fas fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                        <li class="comments"><i class="far fa-comment-dots" aria-hidden="true"></i>
+                                            15
+                                            Comments
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                               <a href="blogDetail.html"> <img src="/images/blog_img_2.png" alt="blog-image" class="product-image"></a>
+                            </div>
+                            <div class="item-bottom about-us-blog-bottom">
+                                <div class="blog-content-top about-us-blog">
+                                    <ul>
+                                        <li class="admin"><i class="far fa-user" aria-hidden="true"></i>Hasib Sing</li>
+                                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i>20 Apr 2025</li>
+                                    </ul>
+                                </div>
+                                <a href="blogDetail.html">Fast fashion: How are clothes linked to climate</a>
+                                <div class="blog-content-bottom about-us-bottom">
+                                    <ul>
+                                        <li class="read-more"><a href="#" class="read-more">Read More<i
+                                                    class="fas fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                        <li class="comments"><i class="far fa-comment-dots" aria-hidden="true"></i>
+                                            42
+                                            Comments
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="blogDetail.html"><img src="/images/blog_img_3.png" alt="blog-image"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom about-us-blog-bottom">
+                                <div class="blog-content-top about-us-blog">
+                                    <ul>
+                                        <li class="admin"><i class="far fa-user" aria-hidden="true"></i>Smith John</li>
+                                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i>07 Mar 2025</li>
+                                    </ul>
+                                </div>
+                                <a href="blogDetail.html">Which foundation formula is right for your skin?</a>
+                                <div class="blog-content-bottom about-us-bottom">
+                                    <ul>
+                                        <li class="read-more"><a href="#" class="read-more">Read More<i
+                                                    class="fas fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                        <li class="comments"><i class="far fa-comment-dots" aria-hidden="true"></i>
+                                            15
+                                            Comments
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="blogDetail.html"><img src="/images/blog_img_4.png" alt="blog-image"
+                                        class="product-image"></a>
+                            </div>
+                            <div class="item-bottom about-us-blog-bottom">
+                                <div class="blog-content-top about-us-blog">
+                                    <ul>
+                                        <li class="admin"><i class="far fa-user" aria-hidden="true"></i>John Deo</li>
+                                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i>24 Apr 2025</li>
+                                    </ul>
+                                </div>
+                                <a href="blogDetail.html">How To Choose The Right Sofa for your home</a>
+                                <div class="blog-content-bottom about-us-bottom">
+                                    <ul>
+                                        <li class="read-more"><a href="#" class="read-more">Read More<i
+                                                    class="fas fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                        <li class="comments"><i class="far fa-comment-dots" aria-hidden="true"></i>
+                                            15
+                                            Comments
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--footer-->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-row1">
+                    <div class="footer-bottom-col1 hidden">
+                        <a href="$"><img src="/images/footer_logo_2.png" alt="logo"></a>
+                        <p>Zenis offers stylish and affordable fashion for every occasion.
+                            Discover quality, comfort, and trends all in one place.</p>
+                        <div class="social-icons">
+                            <p>Follow:</p>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                </label>
+                                <li><a href="#"><i class="fab fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle middle1 hidden">
+                        <h3>Company</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Affiliate</a></li>
+                                <li><a href="#">Career</a></li>
+                                <li><a href="#">Latest News</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col middle hidden">
+                        <h3>Category</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Men's Fashion</a></li>
+                                <li><a href="#">Denim Collection</a></li>
+                                <li><a href="#">Western Wear</a></li>
+                                <li><a href="#">Sports Wear</a></li>
+                                <li><a href="#">Foot Wear</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3>Quick Links</h3>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Return Policy</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Become A Vendor</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                    <div class="footer-bottom-col end hidden">
+                        <h3 class="contact-us">Contact Us</h3>
+                        <p>Reach out anytime — we'd love to hear from you!</p>
+                        <div class="contact-links">
+                            <ul>
+                                <li><img src="/images/location_icon_white.png" alt="location">37 W 24th St, NY</li>
+                                <li><img src="/images/phone_icon_white.png" alt="location">+123 324 5879 39</li>
+                                <li class="email"><img src="/images/mail_icon_white.png" alt="location"><a
+                                        href="#">info@zenis.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--col ends-->
+                </div>
+            </div>
+        </div>
+        <div id="toast" class="toast">Product added successfully</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/venobox@1.9.3/venobox/venobox.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.venobox').venobox({
+                autoplay: true,
+                spinner: 'wave',
+                bgcolor: '#000'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

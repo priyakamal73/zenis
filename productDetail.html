@@ -42,12 +42,12 @@
                         <input type="text" placeholder="Search your product" id="search" oninput="filter()" />
 
                         <ul id="unorderedList" class="unorderedList">
-                            <li><a href="#">Casuals</a></li>
-                            <li><a href="#">Kurtis & Tunics</a></li>
-                            <li><a href="#">Loungewear & Sleepwear</a></li>
-                            <li><a href="#">Shrugs & Jackets</a></li>
-                            <li><a href="#">Party Wear Gowns</a></li>
-                            <li><a href="#">Product not found</a></li>
+                            <li><a href="shop.html">Casuals</a></li>
+                            <li><a href="shop.html">Kurtis & Tunics</a></li>
+                            <li><a href="shop.html">Loungewear & Sleepwear</a></li>
+                            <li><a href="shop.html">Shrugs & Jackets</a></li>
+                            <li><a href="shop.html">Party Wear Gowns</a></li>
+                            <li><a href="shop.html">Product not found</a></li>
                         </ul>
 
                         <a href="#" class="search-icon"><img src="/images/search-interface-symbol.png"
@@ -78,10 +78,9 @@
                 <div class="menu-item">
                     <ul>
                         <li><a href="homepage.html">Home</a></li>
-                        <li><a href="">Shop</a></li>
-                        <li><a href="">Stores</a></li>
-                        <li><a href="">Flash Deals</a></li>
-                        <li><a href="">About Us </a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="flashDeals.html">Flash Deals</a></li>
+                        <li><a href="aboutUs.html">About Us </a></li>
                         <li><a href="">Blogs</a></li>
                         <li><a href="">Contact</a></li>
                     </ul>
@@ -98,8 +97,8 @@
         </nav>
         <!--nav2 ends here-->
         <div class="cart-banner">
-            <h3>Shop Details</h3>
-            <ul>
+            <h3 class="hidden">Shop Details</h3>
+            <ul class="hidden">
                 <li><a href="homepage.html">Home</a></li>
                 <li class="arrow">></li>
                 <li><a href="#">Shop</a></li>
@@ -110,7 +109,7 @@
         <!--cart banner ends here-->
         <div class="shop-details-info">
             <div class="container">
-                <div class="details-row1">
+                <div class="details-row1 hidden">
                     <div class="details-row1-col1">
                         <div class="side-slider-wrapper">
                             <div class="side-slider">
@@ -123,13 +122,13 @@
                             </div>
                         </div>
                         <div class="full-image">
-                            <img src="/images/product_1-1.png" alt="product1">
+                            <img src="/images/product_1-1.png" alt="product1" id="product-detail-image">
                         </div>
                     </div>
 
                     <div class="details-row1-col2">
                         <p id="subtitle">Shrugs & Jackets</p>
-                        <h3 class="full-name">Full Sleeve Hoodie Jacket</h3>
+                        <h3 class="full-name" id="product-full-name">Full Sleeve Hoodie Jacket</h3>
                         <div class="stock-details">
                             <p class="stock">In Stock</p>
                             <div class="stock-reviews">
@@ -142,14 +141,11 @@
                             <p class="review-count">(93 Reviews)</p>
                         </div>
                         <div class="special-brand-cost stock-price">
-                            <p class="new-cost stock-new-price">$65.00 </p>
+                            <p class="new-cost stock-new-price" id="product-actual-cost">$65.00 </p>
                             <p class="old-cost stock-old-price"><s>$70.00</s></p>
                         </div>
 
-                        <p class="description">Auctor urna nunc id cursus. Scelerisque purus semper eget duis at
-                            pharetra vel turpis nunc
-                            eget. Auctor urna nunc id cursus. Scelerisque purus semper eget duis at pharetra vel turpis
-                            nunc eget.</p>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus corrupti dolorem distinctio laborum excepturi, dignissimos reiciendis eius eos sed soluta accusamus rerum minus doloremque magnam, nobis quo animi vero ea neque incidunt hic sequi obcaecati magni esse. Molestiae, iusto praesentium</p>
                         <ul class="stock-size">
                             <li>Size: </li>
                             <li class="size" onclick="selectSize(this)" data-size="S">S</li>
@@ -165,7 +161,7 @@
                             <button title="plus" class="plus" onclick="increaseQuantity()"><i class="fas fa-plus"
                                     aria-hidden="true"></i></button>
                         </div>
-                        <button id="add-to-cart-button" class="add-to-cart-button">Add To Cart</button>
+                        <button id="add-to-cart-button" class="add-to-cart-button" onclick="addToCartFromDetail()">Add To Cart</button>
                         <button id="add-to-wishlist" class="add-to-wishlist">Add To Wishlist</button>
 
                         <ul class="additional-info">
@@ -176,7 +172,7 @@
                     </div>
                 </div>
                 <!--row 1 ends here-->
-                <div class="details-row2">
+                <div class="details-row2 hidden">
                     <div class="container">
                         <div class="tabs">
                             <ul class="tab-list">
@@ -185,8 +181,8 @@
                             </ul>
                         </div>
 
-                        <div class="showTabContent" id="showTabContent">
-                            <div class="description-content" id="description-content">
+                        <div class="showTabContent hidden" id="showTabContent">
+                            <div class="description-content hidden" id="description-content">
                                 <h3>Description</h3>
                                 <p>Elevate your casual style with our Full Sleeve Hoodie Jacket, crafted for comfort and
                                     built to last. Designed for all-day wear, this hoodie is made from soft, breathable
@@ -224,47 +220,194 @@
                                 <p>Color may slightly vary due to photographic lighting or screen resolution.</p>
                             </div>
 
-                            <div class="additional-info-content" id="additional-info-content">
+                            <div class="additional-info-content hidden" id="additional-info-content">
                                 <table>
                                     <tr>
-                                        <td class="text">Folded (w/o wheels)</td>
-                                        <td>32.5″L x 18.5″W x 16.5″H</td>
+                                        <td class="text">Material</td>
+                                        <td class="text-value">100% Cotton</td>
                                     </tr>
-
                                     <tr>
-                                        <td class="text">Folded (w/o wheels)</td>
-                                        <td>32.5″L x 18.5″W x 16.5″H</td>
+                                        <td class="text">Fit Type</td>
+                                        <td class="text-value">Regular Fit</td>
                                     </tr>
-
                                     <tr>
-                                        <td class="text">Folded (w/o wheels)</td>
-                                        <td>32.5″L x 18.5″W x 16.5″H</td>
+                                        <td class="text">Neck Style</td>
+                                        <td class="text-value">Round Neck</td>
                                     </tr>
-
                                     <tr>
-                                        <td class="text">Folded (w/o wheels)</td>
-                                        <td>32.5″L x 18.5″W x 16.5″H</td>
+                                        <td class="text">Sleeve Type</td>
+                                        <td class="text-value">Half Sleeve</td>
                                     </tr>
-
-
                                     <tr>
-                                        <td class="text">Folded (w/o wheels)</td>
-                                        <td>32.5″L x 18.5″W x 16.5″H</td>
+                                        <td class="text">Pattern</td>
+                                        <td class="text-value">Solid</td>
                                     </tr>
-
-
                                     <tr>
-                                        <td class="text">Folded (w/o wheels)</td>
-                                        <td>32.5″L x 18.5″W x 16.5″H</td>
+                                        <td class="text">Occasion</td>
+                                        <td class="text-value">Casual</td>
                                     </tr>
-
                                     <tr>
-                                        <td class="text">Folded (w/o wheels)</td>
-                                        <td>32.5″L x 18.5″W x 16.5″H</td>
+                                        <td class="text">Available Colors</td>
+                                        <td class="text-value">Black, White, Navy Blue, Grey</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text">Size Options</td>
+                                        <td class="text-value">S, M, L, XL, XXL</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text">Fabric Weight</td>
+                                        <td class="text-value">180 GSM</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text">Stretchability</td>
+                                        <td class="text-value">Slight Stretch</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text">Length</td>
+                                        <td class="text-value">Regular Length</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text">Closure Type</td>
+                                        <td class="text-value">Pullover</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text">Hemline</td>
+                                        <td class="text-value">Straight</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text">Season</td>
+                                        <td class="text-value">All Season</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <!--details row 2 ends-->
+                <div class="related-products">
+                    <p>Shop By Products</p>
+                    <h3>Related Products</h3>
+                    <div class="new-arrival-products-row1 hidden">
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="#"><img src="/images/product_23.png" alt="product23" class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="#">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$75.00</p>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(44 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="#"><img src="/images/product_24.png" alt="product24" class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="#">
+                                    <p class="name">Casual Denim Blazer for Men and Women</p>
+                                </a>
+                                <p class="cost">$45.00</p>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(30 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="#"><img src="/images/product_3.png" alt="product3" class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="#">
+                                    <p class="name">Women's Western Party Dress</p>
+                                </a>
+                                <p class="cost">$135.00</p>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(20 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
+                        <div class="item">
+                            <div class="item-top">
+                                <a href="#"><img src="/images/product_26.png" alt="product26" class="product-image"></a>
+                            </div>
+                            <div class="item-bottom">
+                                <a href="#">
+                                    <p class="name">Kid's Western Party Wear Dress</p>
+                                </a>
+                                <p class="cost">$15.00</p>
+                                <div class="reviews">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <img src="/images/star.png" alt="star">
+                                    <p class="reviews-count">(75 Reviews)</p>
+                                </div>
+                                <div class="color-cart">
+                                    <ul class="color">
+                                        <li class="red"></li>
+                                        <li class="green"></li>
+                                        <li class="blue"></li>
+                                        <li class="yellow"></li>
+                                    </ul>
+                                    <button onclick="addToCart(this)"><img src="/images/shopping-bag.png"
+                                            alt="bag"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--item done-->
                     </div>
                 </div>
             </div>
@@ -347,7 +490,7 @@
         </div>
         <div id="toast" class="toast">Product added successfully</div>
     </div>
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

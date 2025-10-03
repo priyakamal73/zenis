@@ -93,8 +93,6 @@ function showNextSlide() {
 if (slides.length > 0) {
     slides[current].classList.add("active");
     setInterval(showNextSlide, 3000);
-} else {
-    console.warn("No .hero-slide elements present in DOM.");
 }
 
 // =====================
@@ -102,6 +100,7 @@ if (slides.length > 0) {
 // =====================
 document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.querySelector(".carousel");
+    if (!carousel) return; //return if no carousel found
     const carousel2 = document.querySelector(".carousel2");
 
     try {
@@ -122,16 +121,39 @@ document.addEventListener("DOMContentLoaded", function () {
         let now = new Date().getTime();
         let distance = countDownDate - now;
 
-        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        let daysData = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hoursData = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutesData = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let secondsData = Math.floor((distance % (1000 * 60)) / 1000);
 
         try {
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
+            // document.getElementById("days").innerHTML = days;
+            // document.getElementById("hours").innerHTML = hours;
+            // document.getElementById("minutes").innerHTML = minutes;
+            // document.getElementById("seconds").innerHTML = seconds;
+
+            const days = document.querySelectorAll(".days");
+            const hours = document.querySelectorAll(".hours");
+            const minutes = document.querySelectorAll(".minutes");
+            const seconds = document.querySelectorAll(".seconds");
+
+
+            days.forEach(day => {
+                day.innerHTML = daysData;
+            });
+
+            hours.forEach(hours => {
+                hours.innerHTML = hoursData;
+            });
+
+            minutes.forEach(minute => {
+                minute.innerHTML = minutesData;
+            });
+
+            seconds.forEach(second => {
+                second.innerHTML = secondsData;
+            });
+
         } catch (e) {
             console.log(e);
         }
@@ -203,6 +225,7 @@ function updateCounter() {
 function displayCart() {
     updateCounter();
     const productDisplay = document.getElementById("productDisplay");
+    if (!productDisplay) return;
     const table = productDisplay.querySelector("table");
 
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -403,14 +426,13 @@ function displayForm() {
 // =====================
 // 16. DISPLAY TOTAL ON CHECKOUT
 // =====================
-document.addEventListener("DOMContentLoaded", displayTotalCheckout);
-document.addEventListener("DOMContentLoaded", updateCounter);
-
 function displayTotalCheckout() {
     let total = localStorage.getItem("total");
     const numArray = total.split(",").map(Number);
 
     let subtotalCheckout = document.querySelector(".subtotal");
+    if (!subtotalCheckout) return; // Exit if not on checkout page (elements don't exist)
+
     let taxCheckout = document.querySelector(".tax");
     let discountCheckout = document.querySelector(".discount");
     let totalCostCheckout = document.querySelector(".total-cost-checkout");
@@ -421,17 +443,24 @@ function displayTotalCheckout() {
     totalCostCheckout.innerHTML = "$" + numArray[3].toFixed(2);
 }
 
+document.addEventListener("DOMContentLoaded", displayTotalCheckout);
+document.addEventListener("DOMContentLoaded", updateCounter);
+
+
 //===================
 //17. SIDE SLIDER IN PRODUCT DETAIL PAGE
 //===================
 
 document.addEventListener("DOMContentLoaded", function () {
     const slider = document.querySelector(".side-slider");
+    if (!slider) return; //return if slider not found
     const fullImage = document.querySelector(".full-image img");
     const imageHeight = 108; // 100px + 8px margin
     let index = 0;
 
+
     let images = Array.from(slider.querySelectorAll("img"));
+    if (!images) return; //return if the elements are not found
 
     // Clone all original images and append them for infinite loop
     images.forEach(img => {
@@ -468,6 +497,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //===================
 function selectSize(li) {
     const ul = document.querySelector(".stock-size");
+    if (!ul) return; //return if element does not exist
     const allLi = ul.querySelectorAll("li");
 
     allLi.forEach(item => item.classList.remove("active"));
@@ -479,6 +509,7 @@ function selectSize(li) {
 document.addEventListener("DOMContentLoaded", function () {
     let selectedSize = localStorage.getItem("selectedSize");
     const ul = document.querySelector(".stock-size");
+    if (!ul) return; //return if element does not exist
 
     if (selectedSize) {
         let allLi = ul.querySelectorAll("li");
@@ -532,6 +563,7 @@ function increaseQuantity() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const countElement = document.getElementById("quantity-count");
+    if (!countElement) return; //return if no count element
     let savedCount = localStorage.getItem("quantity-count");
 
     if (savedCount === null || isNaN(parseInt(savedCount, 10))) {
@@ -580,7 +612,312 @@ document.addEventListener("DOMContentLoaded", function () {
     allLi.forEach(li => {
         if (li.classList.contains("active")) {
             let activeButton = li.querySelector("button");
-            showContent(activeButton); 
+            showContent(activeButton);
         }
     });
+});
+
+//===================
+//22. ADD TO CART FROM DETAIL PAGE 
+//================
+
+function addToCartFromDetail() {
+    let image = document.getElementById("product-detail-image").src;
+    let name = document.getElementById("product-full-name").innerHTML;
+    let cost = document.getElementById("product-actual-cost").innerHTML;
+    let quantityCount = parseInt(document.getElementById("quantity-count").value, 10) || 1;
+
+    if (quantityCount < 1) {
+        showToast("Please enter a valid quantity");
+        return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let found = false;
+
+    cart.forEach(product => {
+        if (
+            product.image === image &&
+            product.name === name &&
+            product.cost === cost
+        ) {
+            product.quantity = (product.quantity || 0) + quantityCount;
+            found = true;
+        }
+    });
+
+    if (!found) {
+        cart.push({ image, name, cost, quantity: quantityCount });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCounter();
+    showToast(`${name} added to cart`);
+}
+
+
+//===================
+//23. PRICE SLIDER 
+//================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const minSlider = document.getElementById('min');
+    const maxSlider = document.getElementById('max');
+    const minValBox = document.getElementById('minVal');
+    const maxValBox = document.getElementById('maxVal');
+
+    if (!minSlider || !maxSlider || !minValBox || !maxValBox) {
+        // If any element missing, stop to avoid errors
+        return;
+    }
+
+    function updateValues() {
+        const slider = document.querySelector('.range-slider');
+        if (!slider) return;
+
+        const sliderWidth = slider.getBoundingClientRect().width;
+        const thumbWidth = 20; // Matches the thumb's width in CSS
+
+        let minVal = parseInt(minSlider.value);
+        let maxVal = parseInt(maxSlider.value);
+
+        // Prevent thumbs from overlapping
+        if (minVal > maxVal - 10) {
+            minVal = maxVal - 10;
+            minSlider.value = minVal;
+        }
+        if (maxVal < minVal + 10) {
+            maxVal = minVal + 10;
+            maxSlider.value = maxVal;
+        }
+
+        minValBox.textContent = minVal;
+        maxValBox.textContent = maxVal;
+
+        // Position tooltips directly beneath thumbs (centered)
+        const minPosition = (minVal / 1000) * (sliderWidth - thumbWidth) + 10;
+        const maxPosition = (maxVal / 1000) * (sliderWidth - thumbWidth) + 10;
+
+        minValBox.style.left = `${minPosition}px`;
+        maxValBox.style.left = `${maxPosition}px`;
+    }
+
+    // Initialize and add event listeners
+    minSlider.addEventListener('input', updateValues);
+    maxSlider.addEventListener('input', updateValues);
+    updateValues();
+});
+
+
+//===================
+//24. FILTER HAMBURGER 
+//================
+
+function handleResize() {
+    const productDisplay = document.getElementById("product-display");
+    const allProductsDisplayRow = document.querySelectorAll(".all-products-display");
+    const items = document.querySelectorAll(".item");
+    const filters = document.getElementById("filters");
+    if (!filters) return;
+    const hamburger = document.getElementById("hamburger");
+    const options = document.querySelectorAll(".option");
+    const lis = document.querySelectorAll(".color-checkboxes li");
+    const itemImages = document.querySelectorAll(".item-image");
+    const itemTexts = document.querySelectorAll(".item-text");
+
+    // === Mobile: up to 767px ===
+    if (window.innerWidth <= 767) {
+        filters.style.display = "none";
+        productDisplay.style.width = "100%";
+
+        hamburger.style.display = "block";
+        hamburger.style.width = "95%";
+        hamburger.style.backgroundColor = "#FFA500";
+        hamburger.style.color = "white";
+        hamburger.style.padding = "15px";
+        hamburger.style.borderRadius = "8px";
+        hamburger.style.marginBottom = "25px";
+
+        items.forEach(item => {
+            item.style.width = "85%";
+        });
+
+        options.forEach(option => {
+            option.style.float = "left";
+            option.style.width = "35%";
+            option.style.marginRight = "10px";
+        });
+
+        lis.forEach(li => {
+            li.style.float = "left";
+            li.style.width = "40%";
+        })
+
+        itemTexts.forEach(itemText => {
+            const a = itemText.document.querySelector("a")[0];
+            a.style.textAlign = "left";
+        });
+    }
+
+    // === Tablet: 768px to 1024px ===
+    else if (window.innerWidth < 1024) {
+        filters.style.display = "none";
+        productDisplay.style.width = "100%";
+
+        hamburger.style.display = "block";
+        hamburger.style.width = "95%";
+        hamburger.style.backgroundColor = "#FFA500";
+        hamburger.style.color = "white";
+        hamburger.style.padding = "15px";
+        hamburger.style.borderRadius = "8px";
+        hamburger.style.marginBottom = "25px";
+
+        items.forEach(item => {
+            item.style.width = "47%";
+        });
+
+        options.forEach(option => {
+            option.style.float = "left";
+            option.style.width = "20%";
+            option.style.marginRight = "10px";
+        });
+
+        lis.forEach(li => {
+            li.style.float = "left";
+            li.style.width = "15%";
+        })
+
+        itemImages.forEach(itemImage => {
+            itemImage.style.width = "18%";
+        });
+
+        itemTexts.forEach(itemText => {
+            itemText.style.width = "80%";
+        });
+
+    }
+
+    // === Small Desktop: 1025px to 1280px ===
+    else if (window.innerWidth >= 1024 && window.innerWidth <= 1280) {
+        filters.style.display = "none";
+        productDisplay.style.width = "100%";
+
+        hamburger.style.display = "block";
+        hamburger.style.width = "95%";
+        hamburger.style.backgroundColor = "#FFA500";
+        hamburger.style.color = "white";
+        hamburger.style.padding = "15px";
+        hamburger.style.borderRadius = "8px";
+        hamburger.style.marginBottom = "25px";
+
+        allProductsDisplayRow.forEach(row => {
+            row.style.display = "block";
+            row.style.width = "33%";
+        });
+
+        items.forEach(item => {
+            item.style.width = "95%";
+            item.style.marginBottom = "30px";
+        });
+
+        options.forEach(option => {
+            option.style.float = "left";
+            option.style.width = "20%";
+        });
+
+        lis.forEach(li => {
+            li.style.float = "left";
+            li.style.width = "15%";
+        });
+
+        itemImages.forEach(itemImage => {
+            itemImage.style.width = "12%"; //18
+        });
+
+        itemTexts.forEach(itemText => {
+            itemText.style.width = "80%";
+        });
+    }
+}
+
+// Run on load
+handleResize();
+
+// Run on resize
+window.addEventListener("resize", handleResize);
+
+
+
+//===================
+//25. EXPAND FILTERS 
+//================
+
+function expandFilters() {
+    const filterDisplay = document.getElementById("display-filters");
+    const itemDisplays = document.querySelectorAll(".item-display");
+
+    filterDisplay.style.display = "block";
+    filterDisplay.style.float = "left";
+    filterDisplay.style.width = "95%";
+    filterDisplay.style.padding = "15px";
+    filterDisplay.style.borderRadius = "8px";
+    filterDisplay.style.marginBottom = "25px";
+    filterDisplay.style.backgroundColor = "#F5F5F5";
+
+
+    // itemDisplays.forEach(itemDisplay => {
+    //     itemDisplay.style.float = "left";
+    //     itemDisplay.style.display = "inline";
+    //     itemDisplay.style.width = "49%";
+    // })
+}
+
+//===================
+//26. COUNTER IN ABOUT US PAGE 
+//================
+
+document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+            const counters = document.querySelectorAll(".counter");
+            const duration = 2000; // total animation time in ms (2 seconds)
+            const intervalTime = 20; // update every 20ms
+            const steps = duration / intervalTime; // total number of increments
+
+            counters.forEach(counter => {
+                const finalCount = Number(counter.getAttribute("data-target"));
+                let step = 0;
+
+                // Calculate the fixed increment per step, based on total steps
+                const increment = finalCount / steps;
+
+                const isDecimal = finalCount % 1 !== 0;
+
+                let currentCount = 0;
+
+                const interval = setInterval(() => {
+                    step++;
+                    currentCount = increment * step;
+
+                    if (step >= steps) {
+                        // Final value set precisely
+                        counter.innerHTML = finalCount.toFixed(isDecimal ? 1 : 0);
+                        clearInterval(interval);
+                    } else {
+                        // Show decimal or integer accordingly
+                        counter.innerHTML = isDecimal
+                            ? currentCount.toFixed(1)  // show 1 decimal place for decimals
+                            : Math.floor(currentCount); // floor for integers
+                    }
+                }, intervalTime);
+            });
+
+            observer.disconnect();
+        }
+    }, { threshold: 0.15 });
+
+    const counterSection = document.getElementById("counter-section");
+    if (!counterSection) return;
+    observer.observe(counterSection);
 });
